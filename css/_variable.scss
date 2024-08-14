@@ -1,0 +1,41 @@
+// 각종 변수 정리
+// 그리드
+$grid__pc :1024px;
+$grid__mobile :90%;
+$grid__tablet :95%;
+
+// 반응형 해상도 기준
+$mobile :768px;
+$tablet :1023px;
+
+// 주조색
+$main : #ffae42        ;
+// 배경색
+// $bgc : #f5f6f9;
+$bgc : hsl(223, 90%, 95%);
+
+
+
+// 폰트
+
+@font-face {
+    font-family: 'Orbit-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/Orbit-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+// 나눔스퀘어
+@import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
+
+// 어그로체
+
+@font-face {
+    font-family: 'SBAggroB';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+    background-color: $bgc;
+}

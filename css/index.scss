@@ -1,0 +1,555 @@
+@import "./variable.scss";
+@import "./reset.css";
+
+// me 페이지 pc버전
+
+section#me {
+    
+    padding-top: 100px;
+    width: 100%;
+    // margin-bottom: 20px;
+    height: 100%;
+    overflow: hidden; 
+    background-color: $bgc;
+   
+
+
+}
+
+section#me {
+
+    .card {
+        width: 560px;
+        height: 600px; // 카드 높이를 고정/
+       
+        perspective: 1000px;
+        // margin-top: 100px;
+        position: fixed;
+        transform: translate(-50%,-50%);
+        left: 50%;
+        top: 50%;
+
+
+        .card__inner {
+            width: 100%;
+            height: 100%;
+            transition: transform 1s;
+            transform-style: preserve-3d;
+        }
+
+
+        .card__front,
+        .card__back {
+            position: absolute;
+            width: 100%;
+            overflow: hidden;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden; // Safari/
+            border-radius: 8px;
+            box-shadow: 0 50px 100px rgba(17, 20, 39, 0.2);
+            background-color: #fff;
+            height: 600px;
+            // padding: 60px 10px 0px 10px;
+
+        }
+
+        .card__front {
+            z-index: 2; // 카드 앞면을 뒷면보다 위로 설정
+            transform: rotateY(0deg);
+
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+
+            h2 {
+                // font-family: "Pacifico";/
+                font-size: 80px;
+                letter-spacing: normal;
+                font-weight: 800;
+                color: $main;
+
+
+
+            }
+        }
+
+        .card__back {
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; // 내용물 중앙 정렬         
+
+            justify-content: space-between;
+
+
+
+
+
+            // 이미지
+            .card__img-name {
+                margin-bottom: 20px;
+                margin-top: 60px;
+
+                .card__img__wrap {
+                    width: 180px;
+                    height: 180px;
+                    overflow: hidden;
+                    border-radius: 50%;
+                    // box-shadow: 0 50px 100px rgba(17, 20, 39, 0.20);
+                    box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+                    margin-bottom: 16px;
+
+
+                    img {
+                        width: 100%;
+                        height: auto;
+                    }
+
+                }
+
+                .card__name {
+                    font-size: 24px;
+                    text-align: center;
+                    font-weight: 800;
+                    position: relative;
+
+
+                    p {
+                        color: $main;
+                        font-size: 18px;
+                        font-weight: 600;
+                        margin-top: 8px;
+                    }
+
+
+                }
+            }
+        }
+
+
+        // about 부분
+        .card__info__wrap {
+            width: 400px;
+            height: 200px;
+            overflow-y: scroll;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            &::-webkit-scrollbar{
+                display:none;
+              }        
+          
+            // 각종 타이틀 부분
+            h2 {
+                font-size: 20px;
+                font-weight: 800;
+                margin-bottom: 12px;
+
+            }
+
+            .card__info__about {
+                margin-bottom: 60px;
+                display: none;
+
+                p {
+                    line-height: 1.5;
+                    font-size: 18px;
+                    text-align: justify;
+                }
+            }
+
+            // 경험 부분
+            .card__info__experience {
+                margin-bottom: 60px;
+                display: none;
+
+                .experience__item {
+                    margin-left: 60px;
+                    border-left: 2px solid #111;
+                    height: 100px;
+                    position: relative;
+                    padding-left: 10px;
+                    line-height: 1.5;
+                    font-size: 18px;
+
+                    &:nth-child(2){
+                        &:before {
+                        content: "2024.6";
+                        position: absolute;
+                        font-size: 12px;
+                        left: -60px;
+                        top: 0px;
+                        font-weight: 800;
+                        }
+                    }
+
+                    &:nth-child(1){
+                        &:before {
+                        content: "2024.3";
+                        position: absolute;
+                        font-size: 12px;
+                        left: -60px;
+                        top: 0px;
+                        font-weight: 800;
+                        }
+                    }
+
+                }
+            }
+
+            // contatc 부분
+            .card__info__contact {
+                margin-bottom: 60px;
+                display: none;
+
+                div {
+                    line-height: 1.5;
+                    margin-bottom: 6px;
+                    font-size: 18px;
+
+                    i {
+                        margin-right: 10px;
+
+                    }
+                }
+            }
+
+            // 현재 탭된 메뉴 외에 안보여줌
+            .card__info__active {
+                display: block;
+            }
+
+
+        }
+
+        // 하단 텝매뉴
+        .card__tab {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            height: 60px;
+            line-height: 60px;
+
+            button {
+                width: calc(100% / 3);
+                text-align: center;
+                font-size: 24px;
+                font-weight: bold;
+                border: none;
+                background-color: #fff;
+                cursor: pointer;
+
+            }
+
+            .card__tab__active {
+                border-bottom: 5px solid $main;
+                box-shadow: 0 50px 100px rgba(17, 20, 39, 0.20);
+                box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+                box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+                box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+            }
+        }
+
+    }
+
+
+
+
+}
+
+// 태블릿 반응형
+@media (max-width:$tablet) {
+    section#me {
+        height: 100vh;
+        overflow: hidden;
+        padding-top: 40px;
+        width: 100%;
+        margin: 0 auto;
+
+        .card {
+            width: 80%;
+            margin-top: 60px;
+
+            .card__front,
+            .card__back {
+                height: 560px;
+
+            }
+            .card__front{
+                h2{
+                    font-size: 48px;
+                }
+            }
+            .card__back {
+                transform: rotateY(180deg);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center; // 내용물 중앙 정렬         
+
+                justify-content: space-between;
+
+
+
+
+
+                // 이미지
+                .card__img-name {
+                    margin-bottom: 18px;
+                    margin-top: 40px;
+
+                    .card__img__wrap {
+                        width: 140px;
+                        height: 140px;
+                        margin-bottom: 14px;
+
+
+                        img {
+                            width: 100%;
+                            height: auto;
+                        }
+
+                    }
+
+                    .card__name {
+                        font-size: 20px;
+
+                        p {
+                            font-size: 16px;
+                            margin-top: 6px;
+                        }
+
+                    }
+                }
+            }
+
+        }
+
+        // about 부분
+        .card {
+            .card__info__wrap {
+                width: 80%;
+                height: 160px;
+               
+
+
+                // 각종 타이틀 부분
+                h2 {
+                    font-size: 18px;
+                    margin-bottom: 10px;
+
+                }
+
+                .card__info__about {
+
+
+                    p {
+                        line-height: 1.5;
+                        font-size: 16px;
+                    }
+                }
+
+                // 경험 부분
+                .card__info__experience {
+                    .experience__item {
+                        font-size: 16px;
+
+                        &::before {
+                            font-size: 14px;
+
+                        }
+
+                    }
+                }
+
+                // contatc 부분
+                .card__info__contact {
+
+                    div {
+                        margin-bottom: 4px;
+                        font-size: 16px;
+
+                    }
+                    .contact__email{
+                        font-size: 14px;
+                    }
+                }
+
+            }
+            // 하단 텝매뉴
+            .card__tab {
+                
+                height: 40px;
+                line-height: 40px;
+              
+    
+                button {
+                 
+                    font-size: 16px;
+                 
+    
+                }
+    
+                .card__tab__active {
+                    border-bottom: 3px solid $main;
+                  
+                }
+            }
+        }
+
+
+
+
+
+    }
+
+}
+
+// 모바일 반응형
+@media (max-width:$mobile) {
+    section#me {
+        height: 100vh;
+        overflow: hidden;
+        padding-top: 140px;
+        width: 100%;
+        margin: 0 auto;
+
+        .card {
+            width: 80%;
+            margin-top: 60px;
+
+            .card__front,
+            .card__back {
+                height: 560px;
+
+            }
+            .card__front{
+                h2{
+                    font-size: 48px;
+                }
+            }
+            .card__back {
+                transform: rotateY(180deg);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center; // 내용물 중앙 정렬         
+
+                justify-content: space-between;
+
+
+
+
+
+                // 이미지
+                .card__img-name {
+                    margin-bottom: 18px;
+                    margin-top: 40px;
+
+                    .card__img__wrap {
+                        width: 140px;
+                        height: 140px;
+                        margin-bottom: 14px;
+
+
+                        img {
+                            width: 100%;
+                            height: auto;
+                        }
+
+                    }
+
+                    .card__name {
+                        font-size: 20px;
+
+                        p {
+                            font-size: 16px;
+                            margin-top: 6px;
+                        }
+
+                    }
+                }
+            }
+
+        }
+
+        // about 부분
+        .card {
+            .card__info__wrap {
+                width: 80%;
+                height: 160px;
+               
+
+
+                // 각종 타이틀 부분
+                h2 {
+                    font-size: 18px;
+                    margin-bottom: 10px;
+
+                }
+
+                .card__info__about {
+
+
+                    p {
+                        line-height: 1.5;
+                        font-size: 16px;
+                    }
+                }
+
+                // 경험 부분
+                .card__info__experience {
+                    .experience__item {
+                        font-size: 16px;
+
+                        &::before {
+                            font-size: 14px;
+
+                        }
+
+                    }
+                }
+
+                // contatc 부분
+                .card__info__contact {
+
+                    div {
+                        margin-bottom: 4px;
+                        font-size: 16px;
+
+                    }
+                    .contact__email{
+                        font-size: 14px;
+                    }
+                }
+
+            }
+            // 하단 텝매뉴
+            .card__tab {
+                
+                height: 40px;
+                line-height: 40px;
+              
+    
+                button {
+                 
+                    font-size: 16px;
+                 
+    
+                }
+    
+                .card__tab__active {
+                    border-bottom: 3px solid $main;
+                  
+                }
+            }
+        }
+
+
+
+
+
+    }
+}

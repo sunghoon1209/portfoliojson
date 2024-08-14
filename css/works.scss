@@ -1,0 +1,666 @@
+@import "./_variable.scss";
+@import "./reset.css";
+
+
+// 포트폴리오 페이지 pc버전
+section#portfolio {
+    // 27AE60 
+    padding-top: 100px;
+
+}
+
+section#portfolio {
+
+
+    .portfolio__wrapper {
+        width: $grid__pc;
+        margin: 0 auto;
+        flex-direction: row;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 40px;
+        gap: 17px;
+
+
+
+        // 작품하나씩 들어가는 박스
+        .works {
+            width: 330px;
+            height: 200px;
+            transition: 1s;
+            position: relative;
+            cursor: pointer;
+
+
+
+            &:hover {
+                transform: scale(0.95);
+
+                &:before {
+                    width: 100%;
+
+                }
+
+                .works__title__pc {
+                    display: block;
+                    opacity: 0;
+                    // 호버시 애니메이션 추가
+                    animation: titleShow 1s forwards;
+                    animation-delay: 0.5s;
+
+                }
+
+                // 제목이 서서히 보이는 애니메이션
+                @keyframes titleShow {
+                    from {
+                        opacity: 0;
+                    }
+
+                    to {
+                        opacity: 1;
+                    }
+
+                }
+            }
+
+            // 박스 위에 마우스 올렸을때 배경
+            &:before {
+                content: "";
+                width: 0%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.7);
+                transform: translateX(-50%);
+                left: 50%;
+                position: absolute;
+                transition: 1s;
+                // 가상요소가 클릭을 방해하기에 pointer-events: none; 로 배경작용만 하게 함
+                pointer-events: none;
+
+
+            }
+
+            .works__wrapper {
+                width: 330px;
+                // height: 100%;
+                aspect-ratio: 1.6;
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+
+                img {
+                    width: 100%;
+                    height: 100%;
+
+                }
+
+            }
+
+
+            .works__title__pc {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transition: delay 1s;
+                display: none;
+                transform: translate(-50%, -50%);
+
+
+                color: #fff;
+                font-size: 32px;
+                font-family: 'NanumSquare';
+                font-weight: 600;
+
+
+
+            }
+
+
+        }
+
+        // 각 작업물의 제목(mobile/tablet전용)
+        .works__title__mobile {
+            display: none; ///
+        }
+    }
+
+    // 작업물들 있는 영역 없애줌
+    .portfolio__wrapper--hide {
+        display: none;
+    }
+}
+
+// 포트폴리오 pc 팝업
+section#portfolio {
+    .popup {
+        width: 100%;
+        // background-color: #fff;
+        display: none;
+    }
+
+    .popup--show {
+        display: block;
+
+    }
+
+}
+
+//   // 팝업창 틀
+section#portfolio .popup {
+
+    background-color: $bgc;
+
+    // 팝업 내용
+    .popup__content {
+        background-color: #fff;
+        width: $grid__pc;
+        margin: 0 auto;
+        font-size: 16px;
+        padding: 20px 0;
+        line-height: 1.5;
+        text-align: justify;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+        // 각 항목별 여백
+        >div {
+            margin-top: 16px;
+
+            p {
+                text-indent: 16px;
+            }
+        }
+
+        // popup 소제목들 
+        div strong {
+            font-size: 18px;
+            font-weight: 800;
+        }
+
+        // 제목
+        .popup__title {
+            text-align: left;
+            font-size: 32px;
+            position: relative;
+
+            &::before {
+                content: "";
+                width: 40px;
+                height: 4px;
+                background-color: #111;
+                position: absolute;
+                top: -20px;
+            }
+        }
+
+        // subtitle
+        .popup__subtitle {
+            text-align: left;
+            font-size: 18px;
+            color: #a8a9b5;
+            font-weight: 600;
+        }
+
+        .popup__description {
+            font-size: 16px;
+        }
+
+        .popup__page-thumb {
+            width: 800px;
+            height: 380px;
+            overflow: hidden;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+            margin: 20px auto;
+            overflow-y: scroll;
+            -ms-overflow-style: none;
+            /* 인터넷 익스플로러 */
+            scrollbar-width: none;
+
+            /* 파이어폭스 */
+            :-webkit-scrollbar {
+                display: none;
+            }
+
+            img {
+                width: 100%;
+                display: block;
+            }
+        }
+
+        .popup__url-code {
+            margin: 20px auto;
+            font-weight: 600;
+            width: 50%;
+            display: flex;
+            justify-content: space-between;
+
+            gap: 16px;
+
+
+            a {
+
+                font-size: 20px;
+                z-index: 3;
+                text-align: center;
+
+                position: relative;
+
+
+                &:before {
+                    content: "";
+                    width: 0px;
+                    height: 16px;
+                    position: absolute;
+                    bottom: 6px;
+                    left: 0;
+                    background-color: #FFFF00;
+                    z-index: -1;
+                    opacity: 0.8;
+                    transition: 0.7s;
+                }
+
+                &:hover:before {
+                    width: 100%;
+                    height: 16px;
+                    position: absolute;
+                    bottom: 6px;
+                    left: 0;
+                    background-color: #FFFF00;
+                    z-index: -1;
+                    opacity: 0.8;
+                    transition: 0.7s;
+                }
+
+            }
+
+        }
+
+
+
+        // 버튼
+        .popup__button {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+
+            margin-bottom: 40px;
+
+            button {
+                display: inline-block;
+                padding: 10px 20px;
+                font-size: 16px;
+                font-weight: bold;
+                text-align: center;
+                text-decoration: none;
+                color: #ffffff;
+                background-color: #111;
+                border: none;
+                border-radius: 5px;
+                border-top-right-radius: 0px;
+                border-bottom-right-radius: 0px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+
+            button.pop-up__button__list {
+                color: #111;
+                background-color: #fff;
+                border: 1px solid #111;
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+                border-left: 0px solid #000;
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+
+
+        }
+
+
+        .popup__features {
+            .popup__features__desc {
+                text-indent: 16px;
+
+
+            }
+
+            .popup__features__img-wrap {
+                width: 80%;
+                overflow: hidden;
+                margin-top: 16px;
+                margin: 0 auto;
+
+                img {
+                    width: 100%;
+                    min-width: 100%;
+                }
+            }
+        }
+
+        .popup__feedback {
+
+            .popup__feedback__1st,
+            .popup__feedback__2nd {
+                text-indent: 16px;
+            }
+        }
+
+
+    }
+
+
+
+
+
+}
+
+
+// tablet 반응형
+
+@media (max-width:$tablet) {
+    section#portfolio {
+
+        padding-top: 80px;
+        // header 영역이 fixed로 100px만큼 고정되어있어서 padding top 으로 추가 공간을 줫음
+        height: 100%;
+    }
+
+    section#portfolio {
+        .portfolio__wrapper {
+            width: $grid__tablet;
+            flex-direction: row;
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 40px;
+            gap: 2%;
+
+            // 작품하나씩 들어가는 박스
+            .works {
+                width: 48%;
+                transition: 1s;
+
+
+                margin-bottom: 60px;
+
+
+
+                &:hover {
+                    transform: scale(1);
+
+                    // 태블릿 이하 사이즈에선 pc 구조의 호버배경 안보이게
+                    &::before {
+                        display: none;
+                    }
+                }
+
+                .works__wrapper {
+                    width: 100%;
+                    margin: 0 auto;
+                    height: 200px;
+                    aspect-ratio: 1.6;
+                    overflow: hidden;
+
+
+                    img {
+                        width: 100%;
+                        // height: 100%;
+
+                    }
+
+                    // pc외에선 제목 안보이게
+                    .works__title__pc {
+                        display: none;
+                    }
+                }
+
+            }
+
+            // 각 작업물의 제목(mobile/tablet전용)
+            .works__title__mobile {
+                display: block;
+                text-align: center;
+                margin-top: 16px;
+                font-size: 24px;
+                font-weight: 600;
+            }
+        }
+
+        // 작업물들 있는 영역 없애줌
+        .portfolio__wrapper--hide {
+            display: none;
+        }
+    }
+
+    // 태블릿사이즈에서 팝업창
+    section#portfolio .popup {
+        .popup__content {
+
+            width: $grid__tablet;
+
+            font-size: 16px;
+            padding: 20px 0;
+            line-height: 1.5;
+            text-align: justify;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+            .popup__page-thumb {
+                width: 90%;
+                height: auto;
+                overflow: hidden;
+                margin: 16px auto;
+
+                img {
+                    width: 100%;
+                    min-width: 100%;
+                    display: block;
+                }
+            }
+        }
+    }
+
+
+
+}
+
+
+// 모바일 반응형
+
+
+@media (max-width:$mobile) {
+    section#portfolio {
+        // 27AE60 
+        padding-top: 80px;
+        // header 영역이 fixed로 100px만큼 고정되어있어서 padding top 으로 추가 공간을 줫음
+
+        // height: 100%;
+    }
+
+    section#portfolio {
+
+
+        .portfolio__wrapper {
+            width: $grid__mobile;
+            margin-top: 20px;
+            flex-direction: row;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
+
+            // 작품하나씩 들어가는 박스
+            .works {
+                width: 100%;
+                // height: 180px;
+                margin-bottom: 10%;
+                transition: 1s;
+                height: auto;
+
+                &:hover {
+                    transform: scale(1);
+                }
+
+                .works__wrapper {
+                    width: 100%;
+                    aspect-ratio: 1.6;
+
+
+                    img {
+                        width: 100%;
+                        min-width: 100%;
+                    }
+                }
+
+            }
+
+            // 각 작업물의 제목(mobile/tablet전용)
+            .works__title__mobile {
+                display: block;
+                text-align: center;
+                margin-top: 10px;
+                font-size: 20px;
+            }
+        }
+
+        // 작업물들 있는 영역 없애줌
+        .portfolio__wrapper--hide {
+            display: none;
+        }
+    }
+
+    section#portfolio .popup {
+        .popup__content {
+
+            width: $grid__mobile;
+
+            font-size: 16px;
+            padding: 20px 0;
+            line-height: 1.5;
+            text-align: justify;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+            // 각 항목별 여백
+            >div {
+                margin-top: 12px;
+
+                p {
+                    text-indent: 16px;
+                    font-size: 14px;
+
+                }
+            }
+
+            // popup 소제목들 
+            div strong {
+                font-size: 16px;
+                font-weight: 800;
+
+            }
+
+            // 제목
+            .popup__title {
+                text-align: left;
+                font-size: 24px;
+                position: relative;
+
+                &::before {
+                    content: "";
+                    width: 30px;
+                    height: 3px;
+
+                    top: -16px;
+                }
+            }
+
+            // subtitle
+            .popup__subtitle {
+                font-size: 16px;
+
+            }
+
+            // 한줄소개
+            .popup__description {
+                font-size: 14px;
+            }
+
+            // 썸네일
+            .popup__page-thumb {
+                width: 90%;
+                height: 180px;
+                overflow: hidden;
+                overflow-y: scroll;
+                margin: 16px auto;
+
+
+                img {
+                    width: 100%;
+                    min-width: 100%;
+                    display: block;
+                }
+            }
+
+            // url
+            .popup__url-code {
+                margin: 20px auto;
+                font-weight: 600;
+                width: 50%;
+                display: flex;
+                justify-content: space-between;
+
+                gap: 14px;
+
+                a {
+
+                    font-size: 16px;
+                    z-index: 3;
+                    text-align: center;
+
+                    position: relative;
+
+
+                    &:before {
+                        display: none;
+                    }
+
+                    &:hover:before {
+                        display: none;
+                    }
+
+                }
+
+                // advanced feature
+
+
+
+            }
+
+            .popup__features {
+                .popup__features__desc {
+                    text-indent: 16px;
+
+
+                }
+
+                .popup__features__img-wrap {
+                    width: 100%;
+                    overflow: hidden;
+
+                    img {
+                        width: 100%;
+                        min-width: 100%;
+                    }
+                }
+            }
+
+
+
+
+
+        }
+    }
+
+
+
+
+
+
+
+
+
+}

@@ -1,0 +1,255 @@
+// PC버전 header
+
+@import "./_variable.scss";
+@import "./reset.css";
+
+header {
+    width: 100%;
+    height: 100px;
+    // border-bottom: 1px solid $main;
+    position: fixed;
+    z-index: 999;
+    background-color: #fff;
+    // border-bottom-right-radius: 10px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+    
+}
+
+header {
+    .header__wrapper {
+        width: $grid__pc;
+        height: inherit;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        line-height: 100px;
+
+        // 로고 
+        .header__logo {
+            width: 50%;
+
+
+            a {
+                // font-family: 'SBAggroB';
+                font-family: "Pacifico";
+                font-size: 40px;
+                letter-spacing: normal;
+                font-weight: 800;
+                color: #2C3E50;
+
+            }
+        }
+
+        // nav메뉴
+        nav.header__nav__pc {
+            width: 15%;
+
+            ul {
+                display: flex;
+                justify-content: space-between;
+
+
+
+
+                li {
+                    text-align: center;
+                    font-family: 'NanumSquare';
+                    font-weight: 800;
+                    
+
+                    a {
+
+                        position: relative;
+
+                        &::before {
+                            content: "";
+                            width: 0%;
+                            height: 16px;
+                            background-color: #FFFF00;
+                            position: absolute;
+                            bottom: 0;
+                            z-index: -1;
+                            opacity: 0.8;
+                            transition: 0.7s;
+
+                        }
+
+                        &:hover::before {
+                            content: "";
+                            width: 100%;
+                            height: 16px;
+                            background-color: #FFFF00;
+                            position: absolute;
+                            bottom: 0;
+                            z-index: -1;
+                            opacity: 0.8;
+                            transition: 0.7s;
+                        }
+                    }
+
+
+                    a.header__nav-list__pc-checked {
+                        position: relative;
+
+                        &::before {
+                            content: "";
+                            width: 100%;
+                            height: 16px;
+                            background-color: #FFFF00;
+                            position: absolute;
+                            bottom: 0;
+                            z-index: -1;
+                            opacity: 0.8;
+                        }
+                    }
+                }
+            }
+        }
+
+        // pc에선 mobile/tablet용  nav메뉴 숨기기
+        .header__nav__mobile-tablet {
+            display: none;
+
+        }
+    }
+}
+
+
+
+// 반응형 태블릿
+@media (max-width:$tablet) {
+    header {
+        height: 80px;
+
+        .header__wrapper {
+            width: $grid__tablet;
+            line-height: 80px;
+
+            // 로고 
+            .header__logo {
+                width: 50%;
+                color: red;
+                // order: 2;
+                display: flex;
+
+                a {
+
+                    font-size: 32px;
+                    font-weight: 800;
+                }
+
+            }
+
+            // nav메뉴
+            nav.header__nav__pc {
+                display: none;
+            }
+
+            // pc에선 mobile/tablet용  nav메뉴 숨기기
+            .header__nav__mobile-tablet {
+
+                width: 50%;
+                display: flex;
+                justify-content: end;
+
+                // 햄버거 메뉴 크기
+                .header__hbm,
+                .header__hbm__active {
+
+                    img {
+                        width: 24px;
+                        height: 24px;
+                    }
+                }
+
+                .header__hbm__active {
+                    display: none;
+                }
+
+                // mobile/tablet 에서 햄버거 버튼 클릭시 nav 메뉴 
+                // mobile/tablet 기준 header의 높이값인 80px맨큼 빼주고 마진 탑으로 나머지 간격 조절
+                .header__nav-list {
+                    width: 100%;
+                    height: calc(100% - 80px);
+                    transition: 1s;
+                    position: fixed;
+                    left: -100%;
+                    // left: 0%;
+                    top: 0;
+                    margin-top: 80px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: #fff;
+
+                    // mobile/tablet 각 메뉴 간격 조절
+                    ul {
+                        height: 50%;
+                        display: flex;
+                        flex-direction: column;
+                        align-content: space-between;
+                        justify-content: space-between;
+
+
+
+
+                        li {
+                            text-align: left;
+                            font-family: 'NanumSquare';
+                            font-weight:800;
+                            font-size: 100px;
+                            position: relative; 
+                          
+
+                            a.header__nav-list__mobile-checked {
+                               
+                               &:before {
+                                    content: "";
+                                    width: 100%;
+                                    height: 80px;
+                                    background-color: #FFFF00;
+                                    position: absolute;
+                                    bottom: 10px;
+                                    z-index: -1;
+                                    opacity: 0.8;
+                                    transition: 0.7s;
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+// 반응형 모바일
+@media (max-width:$mobile) {
+    header {
+        .header__wrapper {
+            width: $grid__mobile;
+
+            .header__logo {              
+
+                a {
+                    font-size: 28px;
+                    font-weight: 800;
+                }
+            }
+
+            .header__nav__mobile-tablet {
+                .header__nav-list {
+                    left: 0%;
+                    top: 100%;
+
+                    ul li {
+                        font-size: 80px;
+                    }
+
+                }
+            }
+
+        }
+    }
+}

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>me</title>
+    <!-- 폰트어썸 -->
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.0/css/all.css">
+    <!-- 노토산스 폰트 -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css">
+    <!-- css -->
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/header.css">
+   
+
+    <!-- script -->
+   
+    <script defer src="./js/header.js"></script>
+    <script defer src="./js/index.js"></script>
+
+    <!-- 구글폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- 헤더 -->
+    <header>
+        <div class="header__wrapper">
+
+            <!-- pc에서 nav메뉴 -->
+            <h1 class="header__logo"><a href="./index.html" alt="로고">Sunghoon</a> </h1>
+            <nav class="header__nav__pc">
+                <ul>
+                    <li><a href="./works.html">Works</a></li>
+                    <li><a href="./skills.html">Skills</a></li>
+
+                </ul>
+            </nav>
+            <!-- mobile / tablet에서 nav메뉴 -->
+            <nav class="header__nav__mobile-tablet">
+                <div class="header__hbm"><img src="./images/hbm.svg" alt="햄버거메뉴"></div>
+                <div class="header__hbm__active"><img src="./images/xbtn.svg" alt="메뉴닫기버튼"></div>
+                <!-- mobile/tablet에서 햄버거버튼 클릭시  -->
+                <div class="header__nav-list">
+                    <ul>
+                        <li><a  href="./works.html" >Works</a></li>
+
+                        <li><a href="./skills.html">Skills</a></li>
+
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- me 영역 -->
+        <section id="me">
+            <div class="card">
+                <div class="card__inner">
+                    <!-- 메인화면 카드 앞면 -->
+                    <div class="card__front">
+                        <h2>Click Me</h2>
+                        
+                    </div>
+                    <!-- 카드 뒷면 -->
+                    <div class="card__back">
+                        <div class="card__img-name">
+                            <div class="card__img__wrap">
+                                <img src="./images/me_img.webp" alt="">
+                                
+                            </div>
+                            <div class="card__name">주성훈
+                                <p>웹 퍼블리셔</p>
+                            </div>
+                        </div>
+                        <div class="card__info__wrap">
+                            <div class="card__info__about card__info__active">
+                                <h2 class="card__title">About</h2>
+                                <p>안녕하세요. 신입 웹 퍼블리셔 주성훈입니다.<br>
+                                    웹 접근성과 웹 표준성을 준수하는<br>
+                                    웹 페이지를 만들기 위해 노력하고,<br>
+                                    최상의 사용자경험을 위해 깊은 고민을 합니다.<br>
+                                </p>
+                            </div>
+                            <div class="card__info__experience ">
+                                <h2>Experience </h2>
+                                <div class="experience__item">
+                                    <div class="experience__item__title">시스포유</div>
+                                    <div class="experience__item__description">
+                                        웹프로그램팀 퍼블리셔
+                                        
+                                    </div>
+                                </div>
+                                <div class="experience__item">
+                                    <div class="experience__item__title">이젠 컴퓨터 아카데미</div>
+                                    <div class="experience__item__description">
+                                        NCS 현장수요에 맞는 디지털디자인
+                                        <br> (웹퍼블리셔)<br>전문가 양성과정 수료
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card__info__contact">
+                                <h2>Contact</h2>
+                                <div class="contact__location"><i class="fa-solid fa-location-dot"></i> <span>경기도 안양시 만안구 석수동</span></div>
+                                <div class="contact__tel"><i class="fa-solid fa-phone"></i><span>010-5793-9412</span></div>
+                                <div class="contact__email"><i class="fa-solid fa-envelope"></i><span>sunghoon.developer@gmail.com</span></div>
+                                <div class="contact__github"><i class="fa-brands fa-github"></i><span><a href="https://github.com/sunghoon1209" target="_blank">Github 바로가기</a></span></div>
+                            </div>
+                        </div>
+                        <div class="card__tab ">
+                            <button class="card__tab__about card__tab__active" onclick="aboutClick()">About</button>
+                            <button class="card__tab__experience" onclick="experienceClick()">Experience</button>
+                            <button class="card__tab__contact" onclick="contactClick()">Contact</button>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+            
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>
