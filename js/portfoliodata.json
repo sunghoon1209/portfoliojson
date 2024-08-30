@@ -8,7 +8,7 @@
         "url": "https://sunghoon1209.github.io/PortfolioNew/",
         "codeUrl": "https://github.com/sunghoon1209/PortfolioNew/archive/refs/heads/main.zip",
         "developVision": "기존에 작업했던 포트폴리오에 대해서 스스로 피드백을 해본 결과, HTML작성할때 class를 규칙성 없이 지정하다보니 코드의 가독성이 떨어지고 유지보수가 어려워서 이를 향상 시키는 연습을 하기위해 제작했습니다. 또한 기존의 포트폴리오에서는 반응형 페이지가 아닌 웹 전용 페이지임에 아쉬움을 느꼈고 Pc,Tablet,Mobile의 3단 구조로 새롭게 제작했습니다.",
-        "skills": "HTML SCSS JavaScript",
+        "skills": "HTML SCSS JavaScript jQuery",
         "feature1st": "• Class 지정할때 BEM 방법으로 가독성 향상 및 유지보수 용이화",
         "feature1stImg": "./images/portfolioN_feature.webp",
         "feature2nd": "• 팝업창의 경우 HTML을 하나만 생성해두고 javascript에서 각각 데이터로 묶은 후 querySelectorAll과 forEach문을 사용해서 텍스트와 이미지, 이미지의 alt값이 바뀌는 기능을 구현했습니다.",
